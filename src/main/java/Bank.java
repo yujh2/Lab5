@@ -7,14 +7,16 @@
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/5/">Lab 5 Description</a>
  */
-public class Bank extends BankAccount{
+public class Bank {
 
     private String bankName;
-
+    private static int numbersOfAccount = 0;
     public Bank() {
         bankName = "Illini Bank";
     }
-
+    public void addOneAccount() {
+        numbersOfAccount++;
+    }
     /**
      * Withdraw money from an account.
      * <p>
@@ -95,7 +97,7 @@ public class Bank extends BankAccount{
      * @return the total number of accounts
      */
     public static int getNumberOfAccount() {
-        return getNumbersOfAccount();
+        return numbersOfAccount;
     }
 
     /**
@@ -128,6 +130,6 @@ public class Bank extends BankAccount{
 
         // Print number of accounts
         System.out.print("Number of active accounts at " + bank.bankName + " are ");
-        System.out.println(BankAccount.getNumbersOfAccount());
+        System.out.println(Bank.numbersOfAccount);
     }
 }

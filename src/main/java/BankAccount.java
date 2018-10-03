@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/5/">Lab 5 Description</a>
  */
-public class BankAccount {
+public class BankAccount extends Bank{
 
     /*
      * You may want to use this to distinguish between different kinds of accounts.
@@ -25,7 +25,6 @@ public class BankAccount {
     private String ownerName;
     private double interestRate;
     private double interestEarned;
-    private static int numbersOfAccount = 0;
     private Random random = new Random();
 
     public BankAccount(final String name, final BankAccountType accountCategory) {
@@ -37,7 +36,7 @@ public class BankAccount {
             ownerName = name;
         }
         this.accountNumber = random.nextInt();
-        numbersOfAccount++;
+        addOneAccount();
     }
     public BankAccount() {
         this.accountBalance = 0.0;
@@ -46,12 +45,7 @@ public class BankAccount {
         this.interestEarned = 0.0;
         this.ownerName = "";
         this.accountNumber = random.nextInt();
-      //  numbersOfAccount++;
-    }
-
-
-    public static int getNumbersOfAccount() {
-        return numbersOfAccount;
+        addOneAccount();
     }
 
     public int getAccountNumber() {
